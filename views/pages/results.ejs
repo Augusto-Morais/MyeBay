@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs'); %>
+</head>
+<body>
+    <div class="searchInput">
+        <form action="/search" method="GET">
+        <label for="mySearch"></label>
+        <input type="search" id="mySearch" name="mySearch" placeholder="Digite sua busca...">
+        <button id="myButton">Search</button>
+        </form>
+    </div>
+
+    <div class="results">
+
+        <%- include('../partials/product.ejs'); %>
+        
+    </div>
+</body>
+</html>

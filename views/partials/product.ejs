@@ -1,0 +1,21 @@
+<% data.forEach(element=> { %>
+    <span class="product">
+        <a href="<%= element.link %>">
+            <img src="<%= element.img %>" alt="product image goes here">
+        </a>
+        <div class="product-info">
+            <p>
+                <%= element.name %>
+            </p>
+            <p>
+                <%= element.price %>
+            </p>
+
+            <p>
+                <%= element.store %>
+            </p>
+        </div>
+
+
+    </span>
+    <% }) %>
