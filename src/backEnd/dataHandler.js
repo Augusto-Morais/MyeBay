@@ -1,82 +1,55 @@
 import axios from "axios";
-import jsdom from "jsdom";
 import format from "./QueryFormatter.js";
+import "dotenv/config";
+
+const API_KEY = process.env.API_KEY;
 
 class Product {
-  constructor(img, name, store, price, link) {
-    this.img = img;
-    this.name = name;
-    this.store = store
+  constructor(title, price, shipping, rating, image, url) {
+    this.title = title;
     this.price = price;
-    this.link = link;
+    this.shipping = shipping;
+    this.rating = rating;
+    this.image = image;
+    this.url = url;
   }
 }
 
 async function getResults(searchString) {
-  let mySearch = format(searchString);
+  const mySearch = format(searchString);
 
-  let values = await axios
-  .request({
-    timeout: 60000,
-    signal: AbortSignal.timeout(60000),
+  const options = {
     method: "GET",
-    url: `https://www.buscape.com.br/search?q=${mySearch}&hitsPerPage=48`
-  })
-    .then(function (response) {
-      const dom = new jsdom.JSDOM(response.data);
-      let results = dom.window.document.querySelectorAll(
-        ".Paper_Paper__HIHv0.Paper_Paper__bordered__iuU_5.Card_Card__LsorJ.Card_Card__clicable__5y__P.SearchCard_ProductCard__1D3ve"
+    url: `https://ebay-search-result.p.rapidapi.com/search/${mySearch}`,
+    headers: {
+      "X-RapidAPI-Key": `${API_KEY}`,
+      "X-RapidAPI-Host": "ebay-search-result.p.rapidapi.com",
+    },
+  };
+
+  const products = [];
+
+  try {
+    const response = await axios.request(options);
+
+    for (const product of response.data.results) {
+      products.push(
+        new Product(
+          product.title,
+          product.price,
+          product.shipping,
+          product.rating,
+          product.image,
+          product.url
+        )
       );
-      let cont = 0;
+    }
 
-      let list = [];
+  } catch (error) {
+    console.error(error);
+  }
 
-      results.forEach(function (element) {
-        let productName = element
-          .getElementsByTagName("h2")
-          .item(0).textContent;
-        let store = element
-          .getElementsByClassName(
-            "Text_Text__h_AF6 Text_MobileLabelXs__ER_cD Text_MobileLabelSAtLarge__YdYbv SearchCard_ProductCard_BestMerchant__f4t5p"
-          )
-          .item(0).textContent;
-        let price = element
-          .getElementsByClassName("Text_Text__h_AF6 Text_MobileHeadingS__Zxam2")
-          .item(0).textContent;
-
-        let imgCard = element
-          .getElementsByClassName("SearchCard_ProductCard_Image__ffKkn")
-          .item(0);
-        let imgSrc = imgCard.getElementsByTagName("img").item(0).src;
-
-        if(!imgSrc.startsWith("https://i.zst.com.br/")){
-          imgSrc = imgCard.getElementsByTagName("img").item(1).src
-        }
-
-        let link = element
-          .getElementsByClassName("SearchCard_ProductCard_Inner__7JhKb")
-          .item(0)
-          .getAttribute("href");
-
-        if (link.startsWith("/")) {
-          const temp = link;
-          link = "https://www.buscape.com.br" + temp;
-        }
-
-        list.push(new Product(imgSrc,productName, store, price, link));
-
-        cont++;
-      });
-
-
-      return list;
-    })
-    .catch((error) => {
-      return error;
-    });
-
-  return values;
+  return products;
 }
-
 
 export default getResults;

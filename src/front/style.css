@@ -17,9 +17,9 @@ input[name="mySearch"]{
 
 button{
     display: block;
-    margin: 1em 50% 0;
-    border-radius: 0.4em;
-    padding: 0.3em;
+    position: relative;
+    top: 1em;
+    margin: auto;
 }
 
 .results{
@@ -44,16 +44,16 @@ button{
 }
 
 
-.product-info p:nth-child(1){
+.product-info p[id='price']{
     font-family: "Kanit", sans-serif;
     font-weight: bold;
 }
 
-.product-info p:nth-child(2){
+.product-info p[id='shipping']{
     font-family: "Source Code Pro";
 }
 
-.product-info p:nth-child(3){
+.product-info p[id='rating']{
     font-family: 'Overpass Mono', monospace;
     font-weight: 100;
 }
@@ -62,7 +62,8 @@ button{
     margin-top: 0.6em;
     margin: 0.6em 1em 0;
     margin-left: 3.3em;
-    width: 10em;
+    width: 13em;
+    height: 16.7em;
 }
 
 .product:hover{

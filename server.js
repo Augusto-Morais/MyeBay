@@ -10,5 +10,5 @@ app.use(express.static("src/front"));
 app.set("view engine", "ejs");
 
 app.listen(PORT,function(){
-    console.log(`App running on https://localhost:${PORT}`);
+    console.log(`App running on http://localhost:${PORT}`);
 });

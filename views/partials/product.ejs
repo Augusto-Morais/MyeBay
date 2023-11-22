@@ -1,21 +1,18 @@
 <% data.forEach(element=> { %>
-    <span class="product">
-        <a href="<%= element.link %>">
-            <img src="<%= element.img %>" alt="product image goes here">
-        </a>
-        <div class="product-info">
-            <p>
-                <%= element.name %>
-            </p>
-            <p>
-                <%= element.price %>
-            </p>
+<span class="product">
+  <a href="<%= element.url %>">
+    <img src="<%= element.image %>" alt="product image goes here" />
+  </a>
+  <div class="product-info">
+    <p id="title"><%= element.title %></p>
+    <p id="price"><%= element.price %></p>
 
-            <p>
-                <%= element.store %>
-            </p>
-        </div>
+    <p id="shipping"><%= element.shipping %></p>
 
+    <% if(element.rating) { %>
+    <p id="rating"><%= element.rating %></p>
+    <% } %>
 
-    </span>
-    <% }) %>
+  </div>
+</span>
+<% }) %>
