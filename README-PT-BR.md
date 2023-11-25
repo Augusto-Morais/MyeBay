@@ -152,7 +152,7 @@ async function getResults(searchString) {
 
 ### Problema 2:
 Como os produtos seguem um padrão de informações, havia a necessidade de exibi-las após recebê-las como um objeto Product, como foi mostrado no problema 1.
-* Como solucionar: no arquivo ```src/main.js```, a função ```getResults()``` é usada para obter os produtos com base na query da da URL, além de enviar a lista para o front-end:
+* Como solucionar: no arquivo ```src/main.js```, a função ```getResults()``` é usada para obter os produtos com base na query da URL, além de enviar a lista para o front-end:
 ```javascript
 router.get("/search", async function (req, res) {
   const mySearch = req.query.mySearch;
