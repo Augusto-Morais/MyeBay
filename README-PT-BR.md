@@ -93,7 +93,7 @@ Resultados:
 ## Problemas enfrentados
 
 ### Problema 1:
-Os produtos recebidos pela API necessitavam ser adicionados à uma lista e padronizados.
+Os produtos recebidos pela API necessitavam ser adicionados a uma lista e padronizados.
 * Como solucionar: no arquivo ```src/backEnd/dataHandler.js``` uma classe Product foi criada para padronizar os produtos:
 ```javascript
   class Product {
