@@ -1,6 +1,6 @@
 # eBay API Interface
 
-In this project, the user fills in the input field with the product they want, and several cards containing information about the results are listed with the help of an [API](https://rapidapi.com/ruamazi/api/ebay-search- result) from Ebay
+In this project, the user fills in the input field with the product they want, and several cards containing information about the results are listed with the help of an [API](https://rapidapi.com/ruamazi/api/ebay-search- result) from Ebay.
 
 ![image](https://github.com/S41K10/MyeBay/assets/89564462/0fbdabe7-dbbb-49c1-b819-b672beb1ea71)
 
