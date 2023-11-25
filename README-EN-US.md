@@ -8,11 +8,11 @@ In this project, the user fills in the input field with the product they want, a
 ### Technologies Used
 
 * [NodeJS](https://nodejs.org/en)
-- axios
-- dotenv
-- ejs
-- express
-- nodemon
+	- axios
+	- dotenv
+	- ejs
+	- express
+	- nodemon
 
 * [Express](https://expressjs.com/pt-br/)
 * [RapidAPI](https://rapidapi.com/hub)
