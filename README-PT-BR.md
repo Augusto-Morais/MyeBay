@@ -26,7 +26,11 @@ Nesse projeto, o usuário preenche o campo de entrada com o produto que deseja, 
 ```dosini
 API_KEY = "your API_KEY goes here"
 ```
-4. Com o projeto aberto no seu editor, rode o seguinte comando no terminal:
+4. Com o projeto aberto no seu editor, rode os seguintes comandos no terminal:
+
+ ```
+npm install
+```
  ```
 npm run start
 ```
