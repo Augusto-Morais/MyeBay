@@ -25,7 +25,11 @@ In this project, the user fills in the input field with the product they want, a
 ```dosini
 API_KEY = "your API_KEY goes here"
 ```
-4. With the project open in your editor, run the following command in the terminal:
+4. With the project open in your editor, run the following commands in the terminal:
+
+  ```
+npm install
+```
   ```
 npm run start
 ```
